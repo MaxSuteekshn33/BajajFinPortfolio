@@ -8,19 +8,24 @@ import { Badge } from "@/components/ui/Badge";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { Button } from "@/components/ui/Button";
 import { formatINR } from "@/lib/format";
-import { Goal, finaiNudge } from "@/lib/mockData";
+import { Goal, finaiNudge, translations, Lang, distributorProfile } from "@/lib/mockData";
 
 type Resolution = "topup" | "sip" | null;
 
 export function GoalCard({
   goal,
   onResolve,
+  onToast,
+  lang = "en",
 }: {
   goal: Goal;
   onResolve: (goalId: string, type: "topup" | "sip") => void;
+  onToast?: (message: string) => void;
+  lang?: Lang;
 }) {
   const [resolution, setResolution] = useState<Resolution>(null);
   const [justResolved, setJustResolved] = useState(false);
+  const t = translations[lang];
 
   const isOffTrack = goal.status === "off-track";
   const isComplete = goal.status === "complete";
@@ -32,6 +37,9 @@ export function GoalCard({
     setResolution(type);
     setJustResolved(true);
     onResolve(goal.id, type);
+    onToast?.(
+      `Done. ${finaiNudge.trailCredited} trail credited to your advisor ${distributorProfile.name}.`
+    );
   }
 
   return (
@@ -45,19 +53,19 @@ export function GoalCard({
         </div>
         {isComplete ? (
           <Badge tone="green">
-            <CheckCircle2 size={12} /> 100% Complete
+            <CheckCircle2 size={12} /> 100% {t.complete}
           </Badge>
         ) : isOffTrack && !isResolved ? (
           <Badge tone="orange">
-            <TrendingDown size={12} /> 8% Off Track
+            <TrendingDown size={12} /> 8% {t.offTrack}
           </Badge>
         ) : isOffTrack && isResolved ? (
           <Badge tone="green">
-            <TrendingUp size={12} /> Back On Track
+            <TrendingUp size={12} /> {t.onTrack}
           </Badge>
         ) : (
           <Badge tone="blue">
-            <TrendingUp size={12} /> On Track
+            <TrendingUp size={12} /> {t.onTrack}
           </Badge>
         )}
       </div>
@@ -84,7 +92,7 @@ export function GoalCard({
             <div className="mt-4 rounded-xl bg-alert-soft p-4">
               <div className="flex gap-2">
                 <Sparkles size={16} className="mt-0.5 shrink-0 text-alert" />
-                <p className="text-xs leading-relaxed text-alert">{finaiNudge.message}</p>
+                <p className="text-xs leading-relaxed text-alert">{t.nudgeMessage}</p>
               </div>
               <div className="mt-3 flex flex-wrap gap-2">
                 <Button
@@ -92,14 +100,14 @@ export function GoalCard({
                   className="text-xs px-3 py-2"
                   onClick={() => handleClick("topup")}
                 >
-                  Top up {formatINR(finaiNudge.topUpAmount)}
+                  {t.topUp} {formatINR(finaiNudge.topUpAmount)}
                 </Button>
                 <Button
                   variant="outline"
                   className="text-xs px-3 py-2 border-alert/40 text-alert hover:bg-alert-soft"
                   onClick={() => handleClick("sip")}
                 >
-                  Increase SIP {formatINR(finaiNudge.sipIncreaseAmount)}
+                  {t.increaseSip} {formatINR(finaiNudge.sipIncreaseAmount)}
                 </Button>
               </div>
             </div>

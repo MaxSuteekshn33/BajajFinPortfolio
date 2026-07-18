@@ -1,14 +1,16 @@
 "use client";
 
-import { Radar, ChevronRight } from "lucide-react";
+import { Radar, ChevronRight, PhoneCall } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { ChurnClient, churnClients, totalChurnRiskCount } from "@/lib/mockData";
 
 export function ChurnRadar({
   onSelectClient,
+  onPrepCall,
 }: {
   onSelectClient: (client: ChurnClient) => void;
+  onPrepCall: (client: ChurnClient) => void;
 }) {
   return (
     <Card className="p-6">
@@ -34,6 +36,7 @@ export function ChurnRadar({
               <th className="pb-2 pr-3 font-medium">AUM</th>
               <th className="pb-2 pr-3 font-medium">Risk</th>
               <th className="pb-2 pr-3 font-medium">Reason</th>
+              <th className="pb-2 pr-3 font-medium" />
               <th className="pb-2 font-medium" />
             </tr>
           </thead>
@@ -54,6 +57,20 @@ export function ChurnRadar({
                   </Badge>
                 </td>
                 <td className="py-3 pr-3 text-gray-500">{client.reason}</td>
+                <td className="py-3 pr-3 text-right">
+                  {client.riskScore === "High" && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onPrepCall(client);
+                      }}
+                      className="flex items-center gap-1 rounded-lg border border-primary/20 px-2.5 py-1.5 text-xs font-semibold text-primary hover:bg-primary-light"
+                    >
+                      <PhoneCall size={12} />
+                      Prep call
+                    </button>
+                  )}
+                </td>
                 <td className="py-3 text-right text-gray-300">
                   <ChevronRight size={16} />
                 </td>

@@ -3,11 +3,21 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Users, Briefcase, Network, ArrowRight, Info } from "lucide-react";
+import { Users, Briefcase, Network, ArrowRight, Info, Check, Minus, X } from "lucide-react";
 import { HowItWorksModal } from "@/components/HowItWorksModal";
+import { DataSpineModal } from "@/components/DataSpineModal";
+import {
+  problemStats,
+  problemLine,
+  compareColumns,
+  compareRows,
+  rolloutPhases,
+  CompareValue,
+} from "@/lib/mockData";
 
 export default function LandingPage() {
   const [howItWorksOpen, setHowItWorksOpen] = useState(false);
+  const [spineOpen, setSpineOpen] = useState(false);
 
   return (
     <main className="flex flex-1 flex-col bg-gradient-to-b from-primary-light via-background to-background">
@@ -54,6 +64,25 @@ export default function LandingPage() {
         </motion.button>
       </section>
 
+      {/* Problem strip */}
+      <section className="mx-auto w-full max-w-5xl px-6 pb-14">
+        <div className="grid gap-4 sm:grid-cols-3">
+          {problemStats.map((p, i) => (
+            <motion.div
+              key={p.label}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 * i }}
+              className="rounded-2xl bg-white p-5 text-center shadow-sm ring-1 ring-black/5"
+            >
+              <p className="text-2xl font-extrabold text-primary-dark sm:text-3xl">{p.stat}</p>
+              <p className="mt-1.5 text-xs leading-snug text-gray-500">{p.label}</p>
+            </motion.div>
+          ))}
+        </div>
+        <p className="mt-5 text-center text-sm font-semibold text-primary">{problemLine}</p>
+      </section>
+
       {/* Entry cards */}
       <section className="mx-auto w-full max-w-5xl px-6 pb-16">
         <div className="grid gap-6 sm:grid-cols-2">
@@ -76,9 +105,19 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Comparison table */}
+      <section className="mx-auto w-full max-w-5xl px-6 pb-16">
+        <ComparisonTable />
+      </section>
+
+      {/* Rollout strip */}
+      <section className="mx-auto w-full max-w-5xl px-6 pb-16">
+        <RolloutStrip />
+      </section>
+
       {/* Diagram */}
       <section className="mx-auto w-full max-w-4xl px-6 pb-24">
-        <DataSpineDiagram />
+        <DataSpineDiagram onOpenSpine={() => setSpineOpen(true)} />
       </section>
 
       {/* Footer */}
@@ -87,6 +126,7 @@ export default function LandingPage() {
       </footer>
 
       <HowItWorksModal open={howItWorksOpen} onClose={() => setHowItWorksOpen(false)} />
+      <DataSpineModal open={spineOpen} onClose={() => setSpineOpen(false)} />
     </main>
   );
 }
@@ -136,7 +176,105 @@ function EntryCard({
   );
 }
 
-function DataSpineDiagram() {
+function CompareIcon({ value }: { value: CompareValue }) {
+  if (value === "yes")
+    return (
+      <span className="mx-auto flex h-6 w-6 items-center justify-center rounded-full bg-gain-soft text-gain">
+        <Check size={14} />
+      </span>
+    );
+  if (value === "partial")
+    return (
+      <span className="mx-auto flex h-6 w-6 items-center justify-center rounded-full bg-alert-soft text-alert">
+        <Minus size={14} />
+      </span>
+    );
+  return (
+    <span className="mx-auto flex h-6 w-6 items-center justify-center rounded-full bg-loss-soft text-loss">
+      <X size={14} />
+    </span>
+  );
+}
+
+function ComparisonTable() {
+  return (
+    <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-8">
+      <p className="mb-1 text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
+        Competitive positioning
+      </p>
+      <h2 className="mb-6 text-center text-xl font-bold text-primary-dark">Why FinOS wins</h2>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[560px] text-left text-sm">
+          <thead>
+            <tr className="border-b border-black/5 text-xs uppercase tracking-wide text-gray-400">
+              <th className="pb-3 pr-3 font-medium">Feature</th>
+              {compareColumns.map((col) => (
+                <th
+                  key={col}
+                  className={`pb-3 px-2 text-center font-medium ${
+                    col === "Bajaj FinOS" ? "text-primary" : ""
+                  }`}
+                >
+                  {col}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {compareRows.map((row) => (
+              <tr key={row.feature} className="border-b border-black/5 last:border-0">
+                <td className="py-3 pr-3 text-gray-600">{row.feature}</td>
+                <td className="py-3 px-2 bg-primary-light/40">
+                  <CompareIcon value={row.bajajFinos} />
+                </td>
+                <td className="py-3 px-2">
+                  <CompareIcon value={row.growwZerodha} />
+                </td>
+                <td className="py-3 px-2">
+                  <CompareIcon value={row.traditionalAmc} />
+                </td>
+                <td className="py-3 px-2">
+                  <CompareIcon value={row.bankRm} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function RolloutStrip() {
+  return (
+    <div>
+      <p className="mb-1 text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
+        Path to market
+      </p>
+      <h2 className="mb-6 text-center text-xl font-bold text-primary-dark">Rollout plan</h2>
+      <div className="grid gap-4 sm:grid-cols-3">
+        {rolloutPhases.map((phase, i) => (
+          <motion.div
+            key={phase.phase}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 * i }}
+            className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5"
+          >
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-light px-3 py-1 text-[11px] font-bold text-primary">
+              {phase.phase} · {phase.window}
+            </span>
+            <h3 className="mt-3 text-base font-bold text-primary-dark">{phase.title}</h3>
+            <p className="mt-2 text-xs leading-relaxed text-gray-500">{phase.description}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DataSpineDiagram({ onOpenSpine }: { onOpenSpine: () => void }) {
   return (
     <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-black/5 sm:p-12">
       <p className="mb-8 text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
@@ -161,12 +299,15 @@ function DataSpineDiagram() {
               strokeDasharray="6 6"
             />
           </svg>
-          <DiagramNode
-            icon={<Network size={24} />}
-            label="Unified Data Spine"
-            sub="Consented signals"
-            primary
-          />
+          <button onClick={onOpenSpine} className="z-10">
+            <DiagramNode
+              icon={<Network size={24} />}
+              label="Unified Data Spine"
+              sub="Consented signals"
+              primary
+              clickable
+            />
+          </button>
         </div>
 
         <DiagramNode icon={<Briefcase size={22} />} label="Distributor Co-Pilot" sub="B2B" />
@@ -180,14 +321,20 @@ function DiagramNode({
   label,
   sub,
   primary = false,
+  clickable = false,
 }: {
   icon: React.ReactNode;
   label: string;
   sub: string;
   primary?: boolean;
+  clickable?: boolean;
 }) {
   return (
-    <div className="z-10 flex flex-col items-center gap-2 rounded-2xl bg-white px-5 py-4 text-center">
+    <div
+      className={`z-10 flex flex-col items-center gap-2 rounded-2xl bg-white px-5 py-4 text-center ${
+        clickable ? "transition-transform hover:scale-105" : ""
+      }`}
+    >
       <div
         className={`flex h-12 w-12 items-center justify-center rounded-full ${
           primary ? "bg-primary text-white" : "bg-primary-light text-primary"

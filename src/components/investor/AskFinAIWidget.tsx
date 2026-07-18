@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { MessageCircle, X, Sparkles } from "lucide-react";
+import { MessageCircle, X, Sparkles, PhoneCall } from "lucide-react";
 import {
   LineChart,
   Line,
@@ -12,22 +12,23 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import { chatScript, rupeeCostAveragingData, ChatQA } from "@/lib/mockData";
+import { saathiScript, rupeeCostAveragingData, ChatQA } from "@/lib/mockData";
 
 interface Message {
   id: string;
   role: "user" | "assistant";
   text: string;
   showChart?: boolean;
+  offerAdvisor?: boolean;
 }
 
-export function AskFinAIWidget() {
+export function AskFinAIWidget({ onTalkToAdvisor }: { onTalkToAdvisor?: () => void }) {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "greeting",
       role: "assistant",
-      text: "Hi Ananya, I'm FinAI. Ask me anything about your portfolio or goals — or tap a suggestion below.",
+      text: "Hi Ananya, I'm Saathi — your FinAI companion. Ask me anything about your portfolio, or tap a suggestion below.",
     },
   ]);
   const [askedIds, setAskedIds] = useState<string[]>([]);
@@ -46,12 +47,13 @@ export function AskFinAIWidget() {
           role: "assistant",
           text: qa.answer,
           showChart: qa.showChart,
+          offerAdvisor: qa.offerAdvisor,
         },
       ]);
     }, 500);
   }
 
-  const remainingQuestions = chatScript.filter((qa) => !askedIds.includes(qa.id));
+  const remainingQuestions = saathiScript.filter((qa) => !askedIds.includes(qa.id));
 
   return (
     <div className="fixed bottom-6 right-6 z-40">
@@ -67,7 +69,7 @@ export function AskFinAIWidget() {
             <div className="flex items-center justify-between bg-primary px-4 py-3 text-white">
               <div className="flex items-center gap-2">
                 <Sparkles size={16} />
-                <p className="text-sm font-semibold">Ask FinAI</p>
+                <p className="text-sm font-semibold">Saathi</p>
               </div>
               <button onClick={() => setOpen(false)} aria-label="Close chat">
                 <X size={17} />
@@ -130,6 +132,18 @@ export function AskFinAIWidget() {
                       </p>
                     </div>
                   )}
+                  {m.offerAdvisor && (
+                    <button
+                      onClick={() => {
+                        setOpen(false);
+                        onTalkToAdvisor?.();
+                      }}
+                      className="mt-2 flex items-center gap-1.5 rounded-xl border border-primary/20 px-3 py-2 text-xs font-semibold text-primary hover:bg-primary-light"
+                    >
+                      <PhoneCall size={13} />
+                      Talk to Rajesh instead
+                    </button>
+                  )}
                 </div>
               ))}
             </div>
@@ -159,7 +173,7 @@ export function AskFinAIWidget() {
       <button
         onClick={() => setOpen((o) => !o)}
         className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-xl transition-transform hover:scale-105"
-        aria-label="Ask FinAI"
+        aria-label="Ask Saathi"
       >
         {open ? <X size={22} /> : <MessageCircle size={22} />}
       </button>
