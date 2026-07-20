@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Network, ArrowLeftRight, Home } from "lucide-react";
+import { Network, ArrowLeftRight, Home, LineChart } from "lucide-react";
 import { DataSpineModal } from "@/components/DataSpineModal";
 
 export function TopBanner() {
@@ -37,6 +37,15 @@ export function TopBanner() {
             <Home size={13} />
             Landing
           </Link>
+          {isInvestor && (
+            <Link
+              href="/markets"
+              className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-white/80 hover:bg-white/10 hover:text-white"
+            >
+              <LineChart size={13} />
+              Markets
+            </Link>
+          )}
           <Link
             href={otherHref}
             className="flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1 font-medium hover:bg-white/20"

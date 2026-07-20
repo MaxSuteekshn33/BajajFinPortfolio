@@ -24,6 +24,24 @@
   --color-loss-soft: #fee2e2;
   --color-alert: #ea580c;
   --color-alert-soft: #ffedd5;
+
+  /* Markets dashboard — dark glass theme (scoped to /markets only) */
+  --color-mkt-bg: #060a17;
+  --color-mkt-bg-2: #0b1220;
+  --color-mkt-surface: rgba(255, 255, 255, 0.045);
+  --color-mkt-surface-strong: rgba(255, 255, 255, 0.08);
+  --color-mkt-border: rgba(255, 255, 255, 0.09);
+  --color-mkt-border-strong: rgba(255, 255, 255, 0.16);
+  --color-mkt-text: #f1f5f9;
+  --color-mkt-muted: #8b93a7;
+  --color-mkt-accent: #5b8def;
+  --color-mkt-accent-soft: rgba(91, 141, 239, 0.14);
+  --color-mkt-violet: #a78bfa;
+  --color-mkt-violet-soft: rgba(167, 139, 250, 0.14);
+  --color-mkt-gain: #34d399;
+  --color-mkt-gain-soft: rgba(52, 211, 153, 0.13);
+  --color-mkt-loss: #fb7185;
+  --color-mkt-loss-soft: rgba(251, 113, 133, 0.13);
 }
 
 body {
@@ -44,4 +62,32 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 999px;
+}
+
+/* Markets dashboard glass utilities */
+.mkt-scope {
+  color-scheme: dark;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.mkt-scope ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.glass-panel {
+  background: var(--color-mkt-surface);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-mkt-border);
+}
+
+.glass-panel-strong {
+  background: var(--color-mkt-surface-strong);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--color-mkt-border-strong);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }

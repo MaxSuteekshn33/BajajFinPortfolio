@@ -8,6 +8,7 @@ import { AskFinAIWidget } from "@/components/investor/AskFinAIWidget";
 import { AdvisorModal } from "@/components/investor/AdvisorModal";
 import { AdvisorCard } from "@/components/investor/AdvisorCard";
 import { MarketDipBanner } from "@/components/investor/MarketDipBanner";
+import { MarketsPromoCard } from "@/components/investor/MarketsPromoCard";
 import { ToastStack, useToast } from "@/components/ui/Toast";
 import { initialGoals, distributorProfile, Lang } from "@/lib/mockData";
 
@@ -61,6 +62,10 @@ export default function InvestorAppPage() {
         </div>
 
         <PortfolioHeader onTalkToAdvisor={() => setAdvisorOpen(true)} />
+
+        <div className="mt-6">
+          <MarketsPromoCard />
+        </div>
 
         <div className="mt-6">
           <MarketDipBanner lang={lang} />
