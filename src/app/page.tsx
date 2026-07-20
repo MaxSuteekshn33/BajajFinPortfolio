@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Users, Briefcase, Network, ArrowRight, Info, Check, Minus, X } from "lucide-react";
 import { HowItWorksModal } from "@/components/HowItWorksModal";
 import { DataSpineModal } from "@/components/DataSpineModal";
+import { TopBanner } from "@/components/TopBanner";
 import {
   problemStats,
   problemLine,
@@ -21,6 +22,8 @@ export default function LandingPage() {
 
   return (
     <main className="flex flex-1 flex-col bg-gradient-to-b from-primary-light via-background to-background">
+      <TopBanner />
+
       {/* Hero */}
       <section className="mx-auto w-full max-w-5xl px-6 pt-20 pb-14 text-center">
         <motion.div
@@ -168,7 +171,9 @@ function EntryCard({
         <h3 className="mt-1 text-2xl font-bold text-primary-dark">{title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-gray-500">{description}</p>
       </div>
-      <div className="mt-8 flex items-center gap-1.5 text-sm font-semibold text-primary">
+      <div
+        className={`mt-8 inline-flex w-fit items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-white transition-colors ${accentClasses}`}
+      >
         Enter
         <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
       </div>

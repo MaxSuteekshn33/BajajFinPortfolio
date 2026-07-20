@@ -3,6 +3,7 @@
 import { Radar, ChevronRight, PhoneCall } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { Button } from "@/components/ui/Button";
 import { ChurnClient, churnClients, totalChurnRiskCount } from "@/lib/mockData";
 
 export function ChurnRadar({
@@ -59,16 +60,17 @@ export function ChurnRadar({
                 <td className="py-3 pr-3 text-gray-500">{client.reason}</td>
                 <td className="py-3 pr-3 text-right">
                   {client.riskScore === "High" && (
-                    <button
+                    <Button
+                      variant="outline"
+                      className="px-2.5 py-1.5 text-xs"
                       onClick={(e) => {
                         e.stopPropagation();
                         onPrepCall(client);
                       }}
-                      className="flex items-center gap-1 rounded-lg border border-primary/20 px-2.5 py-1.5 text-xs font-semibold text-primary hover:bg-primary-light"
                     >
                       <PhoneCall size={12} />
                       Prep call
-                    </button>
+                    </Button>
                   )}
                 </td>
                 <td className="py-3 text-right text-gray-300">

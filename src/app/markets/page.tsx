@@ -1,8 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { TopBanner } from "@/components/TopBanner";
 import { MarketsHero } from "@/components/markets/MarketsHero";
 import { FilterTabs, type MarketFilter } from "@/components/markets/FilterTabs";
 import { InstrumentCard } from "@/components/markets/InstrumentCard";
@@ -32,6 +31,8 @@ export default function MarketsPage() {
 
   return (
     <div className="mkt-scope relative min-h-dvh bg-mkt-bg">
+      <TopBanner />
+
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[640px] overflow-hidden">
         <div
           className="absolute -left-32 -top-32 h-96 w-96 rounded-full blur-3xl"
@@ -48,14 +49,6 @@ export default function MarketsPage() {
       </div>
 
       <div className="relative mx-auto w-full max-w-6xl px-5 py-8 sm:px-8 sm:py-10">
-        <Link
-          href="/investor"
-          className="mb-6 inline-flex items-center gap-1.5 text-sm text-mkt-muted transition-colors hover:text-mkt-text"
-        >
-          <ArrowLeft size={14} />
-          Back to Investor App
-        </Link>
-
         <MarketsHero investedValue={investedValue} currentValue={currentValue} />
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-3">

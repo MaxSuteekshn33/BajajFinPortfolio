@@ -3,14 +3,18 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Network, ArrowLeftRight, Home, LineChart } from "lucide-react";
+import { Network, Home, Users, LineChart, Briefcase } from "lucide-react";
 import { DataSpineModal } from "@/components/DataSpineModal";
+
+const navLinks = [
+  { href: "/", label: "Main", icon: Home },
+  { href: "/investor", label: "Investor", icon: Users },
+  { href: "/markets", label: "Markets", icon: LineChart },
+  { href: "/distributor", label: "Distributor", icon: Briefcase },
+];
 
 export function TopBanner() {
   const pathname = usePathname();
-  const isInvestor = pathname?.startsWith("/investor");
-  const otherHref = isInvestor ? "/distributor" : "/investor";
-  const otherLabel = isInvestor ? "Switch to Distributor Co-Pilot" : "Switch to Investor App";
   const [spineOpen, setSpineOpen] = useState(false);
 
   return (
@@ -29,31 +33,25 @@ export function TopBanner() {
             — one customer graph across AMC, distributor, and Bajaj group signals (consented)
           </span>
         </button>
-        <div className="flex items-center gap-2">
-          <Link
-            href="/"
-            className="flex items-center gap-1 rounded-lg px-2.5 py-1 text-white/80 hover:bg-white/10 hover:text-white"
-          >
-            <Home size={13} />
-            Landing
-          </Link>
-          {isInvestor && (
-            <Link
-              href="/markets"
-              className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-white/80 hover:bg-white/10 hover:text-white"
-            >
-              <LineChart size={13} />
-              Markets
-            </Link>
-          )}
-          <Link
-            href={otherHref}
-            className="flex items-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1 font-medium hover:bg-white/20"
-          >
-            <ArrowLeftRight size={13} />
-            {otherLabel}
-          </Link>
-        </div>
+        <nav className="flex items-center gap-1">
+          {navLinks.map(({ href, label, icon: Icon }) => {
+            const isActive = href === "/" ? pathname === "/" : pathname?.startsWith(href);
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`flex items-center gap-1.5 rounded-lg px-2.5 py-1 font-medium transition-colors ${
+                  isActive
+                    ? "bg-white text-primary-dark"
+                    : "text-white/80 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                <Icon size={13} />
+                {label}
+              </Link>
+            );
+          })}
+        </nav>
       </div>
       <DataSpineModal open={spineOpen} onClose={() => setSpineOpen(false)} />
     </div>
