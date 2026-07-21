@@ -8,7 +8,7 @@ import { DataSpineModal } from "@/components/DataSpineModal";
 
 const navLinks = [
   { href: "/", label: "Main", icon: Home },
-  { href: "/investor", label: "AdvisorEdge", icon: Users },
+  { href: "/investor", label: "InvestServ", icon: Users },
   { href: "/markets", label: "FinBuddy", icon: LineChart },
 ];
 

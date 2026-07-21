@@ -91,7 +91,7 @@ export default function LandingPage() {
           <EntryCard
             href="/investor"
             icon={<Users size={26} />}
-            title="AdvisorEdge"
+            title="InvestServ"
             subtitle="Your portfolio"
             description="Goal-based investing, behavioural nudges, and a calm AI voice — built for people, not just portfolios."
           />
@@ -244,7 +244,7 @@ function DataSpineDiagram({ onOpenSpine }: { onOpenSpine: () => void }) {
         One brain, always personal
       </p>
       <div className="relative flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <DiagramNode icon={<Users size={22} />} label="AdvisorEdge" sub="Goals & AI" />
+        <DiagramNode icon={<Users size={22} />} label="InvestServ" sub="Goals & AI" />
 
         <div className="relative flex flex-1 items-center justify-center">
           <svg
