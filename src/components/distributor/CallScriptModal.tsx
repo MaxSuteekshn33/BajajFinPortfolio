@@ -27,7 +27,7 @@ export function CallScriptModal({
   return (
     <Modal open={client !== null} onClose={onClose} maxWidth="max-w-lg">
       {client && script && (
-        <div className="p-8">
+        <div className="p-9">
           <div className="flex items-center gap-2 text-primary">
             <PhoneCall size={18} />
             <p className="text-xs font-semibold uppercase tracking-wide">Prep Call · AI Script</p>

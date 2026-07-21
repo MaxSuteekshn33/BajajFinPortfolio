@@ -7,7 +7,7 @@ import { distributorProfile } from "@/lib/mockData";
 export function AdvisorModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
     <Modal open={open} onClose={onClose} maxWidth="max-w-md">
-      <div className="p-8 text-center">
+      <div className="p-9 text-center">
         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-gain-soft text-gain">
           <CheckCircle2 size={28} />
         </div>
@@ -18,7 +18,7 @@ export function AdvisorModal({ open, onClose }: { open: boolean; onClose: () => 
           Based on your profile and location, here&apos;s your matched partner:
         </p>
 
-        <div className="mt-5 rounded-2xl bg-surface-muted p-4 text-left">
+        <div className="mt-5 rounded-2xl bg-surface-muted p-5 text-left">
           <div className="flex items-center justify-between">
             <p className="font-bold text-primary-dark">{distributorProfile.name}</p>
             <span className="flex items-center gap-1 text-xs font-semibold text-alert">

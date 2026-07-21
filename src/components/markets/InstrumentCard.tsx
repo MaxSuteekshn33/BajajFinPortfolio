@@ -48,7 +48,7 @@ export function InstrumentCard({
           whileHover={{ y: -3 }}
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="glass-panel relative overflow-hidden rounded-2xl p-4 transition-colors duration-200 group-hover:border-black/10 sm:p-5"
+          className="glass-panel relative overflow-hidden rounded-2xl p-5 transition-colors duration-200 group-hover:border-black/10 sm:p-6"
         >
           <div className="flex items-start justify-between gap-3">
             <div className="flex min-w-0 flex-1 items-center gap-3">

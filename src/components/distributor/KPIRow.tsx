@@ -12,7 +12,7 @@ export function KPIRow({ extraAum }: { extraAum: number }) {
 
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-      <Card className="p-5">
+      <Card className="p-6">
         <p className="text-xs font-medium uppercase tracking-wide text-gray-400">Total AUM</p>
         <CountUp
           value={distributorProfile.aumValue + extraAum}

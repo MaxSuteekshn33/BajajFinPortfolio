@@ -43,7 +43,7 @@ export function GoalCard({
   }
 
   return (
-    <Card className="p-6">
+    <Card className="p-7">
       <div className="flex items-start justify-between gap-3">
         <div>
           <h3 className="font-bold text-primary-dark">{goal.name}</h3>

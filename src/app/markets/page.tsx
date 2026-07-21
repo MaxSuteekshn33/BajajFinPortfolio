@@ -66,7 +66,7 @@ export default function MarketsPage() {
         </div>
 
         {filtered.length === 0 && (
-          <div className="glass-panel mt-8 rounded-2xl p-10 text-center text-sm text-mkt-muted">
+          <div className="glass-panel mt-8 rounded-2xl p-12 text-center text-sm text-mkt-muted">
             Nothing here yet — try a different filter.
           </div>
         )}

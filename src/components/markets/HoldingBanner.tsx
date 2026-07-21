@@ -15,7 +15,7 @@ export function HoldingBanner({
 
   if (!holding) {
     return (
-      <div className="glass-panel flex flex-wrap items-center gap-3 rounded-2xl p-4 sm:p-5">
+      <div className="glass-panel flex flex-wrap items-center gap-3 rounded-2xl p-5 sm:p-6">
         <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/[0.04] text-mkt-muted">
           <Compass size={16} />
         </span>
@@ -36,7 +36,7 @@ export function HoldingBanner({
   const positive = pnl >= 0;
 
   return (
-    <div className="glass-panel-strong rounded-2xl p-4 sm:p-5">
+    <div className="glass-panel-strong rounded-2xl p-5 sm:p-6">
       <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-wide text-mkt-accent">
         <Wallet size={13} />
         Your holding

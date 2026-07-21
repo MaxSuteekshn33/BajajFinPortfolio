@@ -18,7 +18,7 @@ export function StatTile({
     tone === "gain" ? "text-mkt-gain" : tone === "loss" ? "text-mkt-loss" : "text-mkt-text";
 
   return (
-    <div className="glass-panel rounded-xl p-3.5">
+    <div className="glass-panel rounded-xl p-4">
       <div className="flex items-center gap-1 text-[11px] font-medium uppercase tracking-wide text-mkt-muted">
         {label}
         {hint && (

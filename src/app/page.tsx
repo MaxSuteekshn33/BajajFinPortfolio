@@ -12,7 +12,6 @@ import {
   problemLine,
   compareColumns,
   compareRows,
-  rolloutPhases,
   CompareValue,
 } from "@/lib/mockData";
 
@@ -76,7 +75,7 @@ export default function LandingPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.05 * i }}
-              className="rounded-2xl bg-white p-5 text-center shadow-sm ring-1 ring-black/5"
+              className="rounded-2xl bg-white p-6 text-center shadow-sm ring-1 ring-black/5"
             >
               <p className="text-2xl font-extrabold text-primary-dark sm:text-3xl">{p.stat}</p>
               <p className="mt-1.5 text-xs leading-snug text-gray-500">{p.label}</p>
@@ -92,14 +91,14 @@ export default function LandingPage() {
           <EntryCard
             href="/investor"
             icon={<Users size={26} />}
-            title="Investor App"
+            title="AdvisorEdge"
             subtitle="Your portfolio"
             description="Goal-based investing, behavioural nudges, and a calm AI voice — built for people, not just portfolios."
           />
           <EntryCard
             href="/markets"
             icon={<LineChart size={26} />}
-            title="Markets"
+            title="FinBuddy"
             subtitle="Stocks & mutual funds"
             description="Research and invest directly in stocks and mutual funds, with charts and ratios built for your holdings."
           />
@@ -109,11 +108,6 @@ export default function LandingPage() {
       {/* Comparison table */}
       <section className="mx-auto w-full max-w-5xl px-6 pb-16">
         <ComparisonTable />
-      </section>
-
-      {/* Rollout strip */}
-      <section className="mx-auto w-full max-w-5xl px-6 pb-16">
-        <RolloutStrip />
       </section>
 
       {/* Diagram */}
@@ -154,7 +148,7 @@ function EntryCard({
   return (
     <Link
       href={href}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl"
+      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-white p-9 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl"
     >
       <div>
         <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white transition-colors group-hover:bg-primary-dark">
@@ -196,7 +190,7 @@ function CompareIcon({ value }: { value: CompareValue }) {
 
 function ComparisonTable() {
   return (
-    <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-8">
+    <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-black/5 sm:p-9">
       <p className="mb-1 text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
         Competitive positioning
       </p>
@@ -243,43 +237,14 @@ function ComparisonTable() {
   );
 }
 
-function RolloutStrip() {
-  return (
-    <div>
-      <p className="mb-1 text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
-        Path to market
-      </p>
-      <h2 className="mb-6 text-center text-xl font-bold text-primary-dark">Rollout plan</h2>
-      <div className="grid gap-4 sm:grid-cols-3">
-        {rolloutPhases.map((phase, i) => (
-          <motion.div
-            key={phase.phase}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.08 * i }}
-            className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5"
-          >
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-light px-3 py-1 text-[11px] font-bold text-primary">
-              {phase.phase} · {phase.window}
-            </span>
-            <h3 className="mt-3 text-base font-bold text-primary-dark">{phase.title}</h3>
-            <p className="mt-2 text-xs leading-relaxed text-gray-500">{phase.description}</p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function DataSpineDiagram({ onOpenSpine }: { onOpenSpine: () => void }) {
   return (
-    <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-black/5 sm:p-12">
+    <div className="rounded-3xl bg-white p-9 shadow-sm ring-1 ring-black/5 sm:p-14">
       <p className="mb-8 text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
         One brain, always personal
       </p>
       <div className="relative flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <DiagramNode icon={<Users size={22} />} label="Investor App" sub="Goals & AI" />
+        <DiagramNode icon={<Users size={22} />} label="AdvisorEdge" sub="Goals & AI" />
 
         <div className="relative flex flex-1 items-center justify-center">
           <svg

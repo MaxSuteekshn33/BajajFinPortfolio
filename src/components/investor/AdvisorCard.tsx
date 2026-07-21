@@ -18,7 +18,7 @@ export function AdvisorCard({
       initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
     >
-      <Card className="overflow-hidden border-2 border-primary/15 bg-gradient-to-r from-primary-light via-white to-white p-5 sm:p-6">
+      <Card className="overflow-hidden border-2 border-primary/15 bg-gradient-to-r from-primary-light via-white to-white p-6 sm:p-7">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
           <div className="flex items-center gap-4">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-primary text-lg font-bold text-white ring-4 ring-white">

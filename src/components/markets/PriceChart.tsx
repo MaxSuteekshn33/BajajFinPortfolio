@@ -21,7 +21,7 @@ export function PriceChart({ history, positive }: { history: PricePoint[]; posit
   const color = positive ? "var(--color-mkt-gain)" : "var(--color-mkt-loss)";
 
   return (
-    <div className="glass-panel rounded-2xl p-4 sm:p-6">
+    <div className="glass-panel rounded-2xl p-5 sm:p-7">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-mkt-text">Price history</h3>
         <div className="flex gap-1 rounded-full bg-black/[0.04] p-1">

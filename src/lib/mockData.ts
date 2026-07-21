@@ -510,34 +510,6 @@ export const compareRows: CompareRow[] = [
   },
 ];
 
-export interface RolloutPhase {
-  phase: string;
-  window: string;
-  title: string;
-  description: string;
-}
-
-export const rolloutPhases: RolloutPhase[] = [
-  {
-    phase: "Phase 1",
-    window: "0–6 mo",
-    title: "Launch the Investor App",
-    description: "Goal-based investing, Saathi AI, and a dedicated human advisor from day one.",
-  },
-  {
-    phase: "Phase 2",
-    window: "6–12 mo",
-    title: "Deepen Markets",
-    description: "Direct stocks and mutual funds, research-grade data, in the same app as your goals.",
-  },
-  {
-    phase: "Phase 3",
-    window: "12+ mo",
-    title: "Scale personalization",
-    description: "Vernacular AI advisory nationwide — the same intelligence, tuned to every investor.",
-  },
-];
-
 export interface DataSpineSource {
   name: string;
   description: string;

@@ -21,7 +21,7 @@ export function MarketsHero({
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="glass-panel-strong rounded-3xl p-6 sm:p-8"
+      className="glass-panel-strong rounded-3xl p-7 sm:p-9"
     >
       <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wide text-mkt-muted">
         <Sparkles size={13} className="text-mkt-accent" />

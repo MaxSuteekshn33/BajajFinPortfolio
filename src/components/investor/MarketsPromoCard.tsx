@@ -10,7 +10,7 @@ export function MarketsPromoCard() {
   return (
     <Link
       href="/markets"
-      className="group relative block cursor-pointer overflow-hidden rounded-3xl p-6 sm:p-7"
+      className="group relative block cursor-pointer overflow-hidden rounded-3xl p-7 sm:p-8"
       style={{
         background: "linear-gradient(135deg, #060a17 0%, #0b1220 55%, #131b30 100%)",
       }}
@@ -22,7 +22,7 @@ export function MarketsPromoCard() {
         <div>
           <div className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white/80">
             <LineChart size={12} />
-            New · Markets
+            New · FinBuddy
           </div>
           <h3 className="mt-3 text-lg font-bold text-white sm:text-xl">
             Your stocks &amp; mutual funds, in one place
@@ -33,7 +33,7 @@ export function MarketsPromoCard() {
             charts, P/E, debt-to-equity, and fund ratios for every one.
           </p>
           <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-white transition-transform duration-200 group-hover:translate-x-1">
-            Explore Markets
+            Explore FinBuddy
             <ArrowRight size={15} />
           </span>
         </div>

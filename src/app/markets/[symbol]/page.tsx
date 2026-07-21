@@ -57,7 +57,7 @@ export default async function InstrumentDetailPage({
           className="mb-6 inline-flex items-center gap-1.5 text-sm text-mkt-muted transition-colors hover:text-mkt-text"
         >
           <ArrowLeft size={14} />
-          Back to Markets
+          Back to FinBuddy
         </Link>
 
         <div className="flex flex-wrap items-start justify-between gap-4">
@@ -104,7 +104,7 @@ export default async function InstrumentDetailPage({
         <TradeActions instrument={instrument} holding={holding} />
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <div className="glass-panel rounded-2xl p-4 sm:p-5">
+          <div className="glass-panel rounded-2xl p-5 sm:p-6">
             <RangeBar
               label="Today's range"
               low={instrument.dayLow}
@@ -112,7 +112,7 @@ export default async function InstrumentDetailPage({
               current={instrument.currentPrice}
             />
           </div>
-          <div className="glass-panel rounded-2xl p-4 sm:p-5">
+          <div className="glass-panel rounded-2xl p-5 sm:p-6">
             <RangeBar
               label="52-week range"
               low={instrument.week52Low}
@@ -217,7 +217,7 @@ export default async function InstrumentDetailPage({
           )}
         </div>
 
-        <div className="mt-6 glass-panel rounded-2xl p-4 sm:p-5">
+        <div className="mt-6 glass-panel rounded-2xl p-5 sm:p-6">
           <h3 className="text-sm font-semibold text-mkt-text">
             About {instrument.type === "stock" ? instrument.name : "this fund"}
           </h3>

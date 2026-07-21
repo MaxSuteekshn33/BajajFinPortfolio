@@ -25,7 +25,7 @@ export function ReportPreviewModal({
             </p>
           </div>
 
-          <div className="space-y-5 p-8">
+          <div className="space-y-5 p-9">
             <div className="grid grid-cols-3 gap-3 text-center">
               <div className="rounded-xl bg-surface-muted p-3">
                 <p className="text-[10px] uppercase tracking-wide text-gray-400">AUM</p>

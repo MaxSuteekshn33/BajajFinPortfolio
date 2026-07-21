@@ -14,7 +14,7 @@ export function ChurnRadar({
   onPrepCall: (client: ChurnClient) => void;
 }) {
   return (
-    <Card className="p-6">
+    <Card className="p-7">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-alert-soft text-alert">

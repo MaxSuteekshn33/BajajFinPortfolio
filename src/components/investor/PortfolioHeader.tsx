@@ -10,7 +10,7 @@ import { investorProfile } from "@/lib/mockData";
 
 export function PortfolioHeader({ onTalkToAdvisor }: { onTalkToAdvisor: () => void }) {
   return (
-    <Card className="p-6 sm:p-8">
+    <Card className="p-7 sm:p-9">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex flex-wrap items-center gap-2">
