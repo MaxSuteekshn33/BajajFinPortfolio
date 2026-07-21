@@ -1,18 +1,5 @@
 // All data below is hardcoded mock data for demo purposes only.
 
-export type GoalStatus = "on-track" | "complete" | "off-track";
-
-export interface Goal {
-  id: string;
-  name: string;
-  progress: number; // current %
-  targetProgress: number; // where it should be by now
-  status: GoalStatus;
-  targetAmount: number;
-  currentAmount: number;
-  targetYear: number;
-}
-
 export const investorProfile = {
   name: "Ananya Sharma",
   age: 29,
@@ -24,138 +11,6 @@ export const investorProfile = {
   xirr: 12.4,
   activeGoals: 3,
 };
-
-export const initialGoals: Goal[] = [
-  {
-    id: "home",
-    name: "Home Down Payment 2029",
-    progress: 72,
-    targetProgress: 72,
-    status: "on-track",
-    targetAmount: 2000000,
-    currentAmount: 1440000,
-    targetYear: 2029,
-  },
-  {
-    id: "emergency",
-    name: "Emergency Fund",
-    progress: 100,
-    targetProgress: 100,
-    status: "complete",
-    targetAmount: 300000,
-    currentAmount: 300000,
-    targetYear: 2026,
-  },
-  {
-    id: "europe",
-    name: "Europe Trip 2027",
-    progress: 37,
-    targetProgress: 45,
-    status: "off-track",
-    targetAmount: 400000,
-    currentAmount: 148000,
-    targetYear: 2027,
-  },
-];
-
-export const finaiNudge = {
-  message:
-    "Markets dipped 4% this month. Your Europe goal is slightly behind. A one-time top-up of ₹6,000 or increasing your SIP by ₹500 gets you back on track.",
-  topUpAmount: 6000,
-  sipIncreaseAmount: 500,
-  trailCredited: "₹9",
-};
-
-export interface ChatQA {
-  id: string;
-  question: string;
-  answer: string;
-  showChart?: boolean;
-  offerAdvisor?: boolean;
-}
-
-// Saathi — floating AI concierge widget script
-export const saathiScript: ChatQA[] = [
-  {
-    id: "s1",
-    question: "Why is my portfolio down?",
-    answer:
-      "Your portfolio dipped about 4% this month simply because markets moved down broadly — nothing specific to your holdings changed. Your allocation is untouched, and goals like your Home and Emergency Fund are still on track. Short dips like this are a normal, expected part of investing.",
-  },
-  {
-    id: "s2",
-    question: "Can I increase my SIP?",
-    answer:
-      "Yes — increasing your SIP by ₹500/month would bring your Europe Trip goal fully back on track for 2027. You can do this right from the goal card above, or I can point you to it. Small increases now compound meaningfully by your target year.",
-  },
-  {
-    id: "s3",
-    question: "Should I stop my SIP?",
-    answer:
-      "I'd gently push back on that. When markets dip, your fixed SIP amount buys more units at a lower price — that's rupee-cost averaging working in your favour, not against you. Investors with your pattern who stayed invested through past dips reached their goals 15-20% faster than those who paused. If you're feeling uneasy, a quick call with Rajesh usually helps more than pausing.",
-    showChart: true,
-    offerAdvisor: true,
-  },
-];
-
-export const marketDipBanner = {
-  title: "Markets dipped 4% this month. Your goals are built for this — see why",
-  body: "Short-term dips are exactly what your goal plans are designed to absorb. Your SIPs keep buying more units at lower prices during dips like this one (rupee-cost averaging), and your target dates already build in room for volatility. Investors who stay the course through dips typically reach their goals faster, not slower — reacting is usually the only way to actually lose ground.",
-};
-
-export type Lang = "en" | "hi";
-
-export const translations: Record<
-  Lang,
-  {
-    nudgeMessage: string;
-    topUp: string;
-    increaseSip: string;
-    offTrack: string;
-    onTrack: string;
-    complete: string;
-    doneMessage: string;
-    bannerTitle: string;
-    bannerBody: string;
-    bannerCta: string;
-  }
-> = {
-  en: {
-    nudgeMessage: finaiNudge.message,
-    topUp: "Top up",
-    increaseSip: "Increase SIP",
-    offTrack: "Off Track",
-    onTrack: "On Track",
-    complete: "Complete",
-    doneMessage: "Done. Your goal is back on track.",
-    bannerTitle: marketDipBanner.title,
-    bannerBody: marketDipBanner.body,
-    bannerCta: "See why",
-  },
-  hi: {
-    nudgeMessage:
-      "इस महीने बाज़ार में 4% की गिरावट आई है। आपका यूरोप ट्रिप लक्ष्य थोड़ा पीछे है। ₹6,000 का एकमुश्त टॉप-अप या ₹500 की SIP वृद्धि इसे फिर से ट्रैक पर ला देगी।",
-    topUp: "टॉप-अप करें",
-    increaseSip: "SIP बढ़ाएँ",
-    offTrack: "लक्ष्य से पीछे",
-    onTrack: "ट्रैक पर",
-    complete: "पूर्ण",
-    doneMessage: "हो गया। आपका लक्ष्य फिर से ट्रैक पर है।",
-    bannerTitle: "इस महीने बाज़ार में 4% की गिरावट आई — आपके लक्ष्य इसी के लिए बनाए गए हैं, वजह जानें",
-    bannerBody:
-      "इस तरह की छोटी गिरावटें आपके लक्ष्य-आधारित योजना के लिए सामान्य हैं। गिरावट के दौरान आपकी SIP कम कीमत पर ज़्यादा यूनिट खरीदती है (रुपी-कॉस्ट एवरेजिंग), और आपकी लक्ष्य तारीखों में पहले से ही उतार-चढ़ाव के लिए जगह रखी गई है। जो निवेशक ऐसी गिरावटों के दौरान निवेशित रहते हैं, वे आमतौर पर अपने लक्ष्यों तक तेज़ी से पहुँचते हैं।",
-    bannerCta: "वजह जानें",
-  },
-};
-
-export const rupeeCostAveragingData = [
-  { month: "Feb", nav: 42, unitsBought: 11.9 },
-  { month: "Mar", nav: 38, unitsBought: 13.2 },
-  { month: "Apr", nav: 35, unitsBought: 14.3 },
-  { month: "May", nav: 39, unitsBought: 12.8 },
-  { month: "Jun", nav: 44, unitsBought: 11.4 },
-  { month: "Jul", nav: 47, unitsBought: 10.6 },
-];
 
 // ---------------- Distributor Co-Pilot ----------------
 
@@ -435,9 +290,9 @@ export const howItWorksSteps = [
       "Nudges and next-best-actions are generated for you, per moment — not a generic segment or template.",
   },
   {
-    title: "A human, always on call",
+    title: "Always in sync",
     description:
-      "Every signal that reaches you is visible to your dedicated advisor too — so a real person is always one tap away.",
+      "Every signal updates your portfolio view in real time, across devices, the moment it happens.",
   },
 ];
 
@@ -446,15 +301,15 @@ export const howItWorksSteps = [
 export const problemStats = [
   {
     stat: "12.4%",
-    label: "average XIRR across active goal plans",
+    label: "average XIRR, personalized to your holdings",
   },
   {
     stat: "24/7",
-    label: "Saathi AI copilot for your portfolio",
+    label: "live NSE/BSE market data & alerts",
   },
   {
-    stat: "1:1",
-    label: "dedicated human advisor, always included",
+    stat: "500+",
+    label: "stocks & mutual funds, one unified app",
   },
 ];
 
@@ -479,13 +334,6 @@ export const compareRows: CompareRow[] = [
     growwZerodha: "yes",
     traditionalAmc: "no",
     bankRm: "partial",
-  },
-  {
-    feature: "Human advisor attached",
-    bajajFinos: "yes",
-    growwZerodha: "no",
-    traditionalAmc: "yes",
-    bankRm: "yes",
   },
   {
     feature: "AI copilot for your goals",
@@ -525,8 +373,8 @@ export const dataSpineSources: DataSpineSource[] = [
     description: "SIPs, lumpsums, switches, and redemptions across Bajaj Finserv AMC schemes.",
   },
   {
-    name: "Advisor CRM",
-    description: "Call notes and meeting history from your dedicated advisor, kept in sync with your app.",
+    name: "Distributor CRM",
+    description: "Call notes and meeting history from your mutual fund distributor, kept in sync with your app.",
   },
   {
     name: "Bajaj group signals",

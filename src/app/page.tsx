@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Users, LineChart, Network, ArrowRight, Info, Check, Minus, X, ShieldCheck } from "lucide-react";
+import { LineChart, Network, ArrowRight, Info, Check, Minus, X } from "lucide-react";
 import { HowItWorksModal } from "@/components/HowItWorksModal";
 import { DataSpineModal } from "@/components/DataSpineModal";
 import { TopBanner } from "@/components/TopBanner";
@@ -49,8 +49,8 @@ export default function LandingPage() {
           transition={{ delay: 0.1 }}
           className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-500 sm:text-lg"
         >
-          Bajaj FinOS pairs hyper-personalized, goal-based investing with a dedicated human
-          advisor and a calm AI companion — so every decision fits your life, not a generic
+          Bajaj FinOS pairs hyper-personalized, goal-based investing with a calm AI companion
+          and real-time market intelligence — so every decision fits your life, not a generic
           model portfolio.
         </motion.p>
 
@@ -85,20 +85,13 @@ export default function LandingPage() {
         <p className="mt-5 text-center text-sm font-semibold text-primary">{problemLine}</p>
       </section>
 
-      {/* Entry cards */}
+      {/* Entry card */}
       <section className="mx-auto w-full max-w-5xl px-6 pb-16">
-        <div className="grid gap-6 sm:grid-cols-2">
-          <EntryCard
-            href="/investor"
-            icon={<Users size={26} />}
-            title="InvestServ"
-            subtitle="Your portfolio"
-            description="Goal-based investing, behavioural nudges, and a calm AI voice — built for people, not just portfolios."
-          />
+        <div className="mx-auto max-w-md">
           <EntryCard
             href="/markets"
             icon={<LineChart size={26} />}
-            title="FinBuddy"
+            title="InvestServ"
             subtitle="Stocks & mutual funds"
             description="Research and invest directly in stocks and mutual funds, with charts and ratios built for your holdings."
           />
@@ -243,10 +236,10 @@ function DataSpineDiagram({ onOpenSpine }: { onOpenSpine: () => void }) {
       <p className="mb-8 text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
         One brain, always personal
       </p>
-      <div className="relative flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <DiagramNode icon={<Users size={22} />} label="InvestServ" sub="Goals & AI" />
+      <div className="relative flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-center">
+        <DiagramNode icon={<LineChart size={22} />} label="InvestServ" sub="Markets & AI" />
 
-        <div className="relative flex flex-1 items-center justify-center">
+        <div className="relative flex flex-1 items-center justify-center sm:max-w-xs">
           <svg
             className="absolute top-1/2 hidden h-px w-full -translate-y-1/2 sm:block"
             preserveAspectRatio="none"
@@ -272,8 +265,6 @@ function DataSpineDiagram({ onOpenSpine }: { onOpenSpine: () => void }) {
             />
           </button>
         </div>
-
-        <DiagramNode icon={<ShieldCheck size={22} />} label="Your Advisor" sub="Human, on call" />
       </div>
     </div>
   );

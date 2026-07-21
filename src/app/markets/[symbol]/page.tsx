@@ -57,7 +57,7 @@ export default async function InstrumentDetailPage({
           className="mb-6 inline-flex items-center gap-1.5 text-sm text-mkt-muted transition-colors hover:text-mkt-text"
         >
           <ArrowLeft size={14} />
-          Back to FinBuddy
+          Back to InvestServ
         </Link>
 
         <div className="flex flex-wrap items-start justify-between gap-4">
