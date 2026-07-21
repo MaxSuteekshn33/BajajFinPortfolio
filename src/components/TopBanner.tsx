@@ -3,14 +3,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Network, Home, Users, LineChart, Briefcase } from "lucide-react";
+import { Network, Home, Users, LineChart } from "lucide-react";
 import { DataSpineModal } from "@/components/DataSpineModal";
 
 const navLinks = [
   { href: "/", label: "Main", icon: Home },
   { href: "/investor", label: "Investor", icon: Users },
   { href: "/markets", label: "Markets", icon: LineChart },
-  { href: "/distributor", label: "Distributor", icon: Briefcase },
 ];
 
 export function TopBanner() {

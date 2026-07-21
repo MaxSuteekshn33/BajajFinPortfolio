@@ -48,12 +48,12 @@ export function InstrumentCard({
           whileHover={{ y: -3 }}
           whileTap={{ scale: 0.98 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="glass-panel relative overflow-hidden rounded-2xl p-4 transition-colors duration-200 group-hover:border-white/20 sm:p-5"
+          className="glass-panel relative overflow-hidden rounded-2xl p-4 transition-colors duration-200 group-hover:border-black/10 sm:p-5"
         >
           <div className="flex items-start justify-between gap-3">
             <div className="flex min-w-0 flex-1 items-center gap-3">
               <div
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xs font-bold text-mkt-bg"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-xs font-bold text-primary-dark"
                 style={{ background: instrument.accent }}
               >
                 {instrument.monogram}
@@ -112,7 +112,7 @@ export function InstrumentCard({
                 {instrument.tags.slice(0, 2).map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-white/5 px-2 py-0.5 text-[11px] text-mkt-muted"
+                    className="rounded-full bg-black/[0.04] px-2 py-0.5 text-[11px] text-mkt-muted"
                   >
                     {tag}
                   </span>

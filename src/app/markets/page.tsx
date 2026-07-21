@@ -36,15 +36,11 @@ export default function MarketsPage() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[640px] overflow-hidden">
         <div
           className="absolute -left-32 -top-32 h-96 w-96 rounded-full blur-3xl"
-          style={{ background: "rgba(91, 141, 239, 0.12)" }}
+          style={{ background: "rgba(0, 55, 159, 0.08)" }}
         />
         <div
           className="absolute right-0 top-1/3 h-96 w-96 rounded-full blur-3xl"
-          style={{ background: "rgba(167, 139, 250, 0.12)" }}
-        />
-        <div
-          className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full blur-3xl"
-          style={{ background: "rgba(52, 211, 153, 0.06)" }}
+          style={{ background: "rgba(91, 141, 239, 0.1)" }}
         />
       </div>
 
@@ -75,9 +71,11 @@ export default function MarketsPage() {
           </div>
         )}
 
-        <p className="mt-10 text-center text-xs text-mkt-muted">
-          Prices, ratios, and fund data shown are illustrative mock data for this pilot and do not
-          reflect live markets.
+        <p className="mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed text-mkt-muted">
+          Prices, ratios, and fund data shown are illustrative mock data for this pilot and do
+          not reflect live markets. Bajaj Finserv Asset Management is registered with SEBI;
+          mutual fund investments are subject to market risks. Data is handled under the
+          RBI-regulated Account Aggregator framework and the DPDP Act, 2023.
         </p>
       </div>
     </div>

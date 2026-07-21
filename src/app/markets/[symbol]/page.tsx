@@ -5,6 +5,7 @@ import { PriceChart } from "@/components/markets/PriceChart";
 import { RangeBar } from "@/components/markets/RangeBar";
 import { StatTile } from "@/components/markets/StatTile";
 import { HoldingBanner } from "@/components/markets/HoldingBanner";
+import { TradeActions } from "@/components/markets/TradeActions";
 import {
   getInstrument,
   getHolding,
@@ -42,11 +43,11 @@ export default async function InstrumentDetailPage({
       <div className="pointer-events-none absolute inset-x-0 top-0 h-[640px] overflow-hidden">
         <div
           className="absolute -left-32 -top-32 h-96 w-96 rounded-full blur-3xl"
-          style={{ background: "rgba(91, 141, 239, 0.12)" }}
+          style={{ background: "rgba(0, 55, 159, 0.08)" }}
         />
         <div
           className="absolute right-0 top-1/3 h-96 w-96 rounded-full blur-3xl"
-          style={{ background: "rgba(167, 139, 250, 0.12)" }}
+          style={{ background: "rgba(91, 141, 239, 0.1)" }}
         />
       </div>
 
@@ -62,7 +63,7 @@ export default async function InstrumentDetailPage({
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div className="flex items-center gap-3.5">
             <div
-              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-sm font-bold text-mkt-bg"
+              className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-sm font-bold text-primary-dark"
               style={{ background: instrument.accent }}
             >
               {instrument.monogram}
@@ -74,7 +75,7 @@ export default async function InstrumentDetailPage({
                 <span aria-hidden>·</span>
                 <span>{instrument.category}</span>
                 <span aria-hidden>·</span>
-                <span className="rounded-full bg-white/5 px-2 py-0.5 uppercase tracking-wide">
+                <span className="rounded-full bg-black/[0.04] px-2 py-0.5 uppercase tracking-wide">
                   {instrument.type === "stock" ? "Stock" : "Mutual Fund"}
                 </span>
               </div>
@@ -99,6 +100,8 @@ export default async function InstrumentDetailPage({
         <div className="mt-6">
           <HoldingBanner instrument={instrument} holding={holding} />
         </div>
+
+        <TradeActions instrument={instrument} holding={holding} />
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2">
           <div className="glass-panel rounded-2xl p-4 sm:p-5">
@@ -228,7 +231,7 @@ export default async function InstrumentDetailPage({
             {instrument.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full bg-white/5 px-2.5 py-1 text-[11px] text-mkt-muted"
+                className="rounded-full bg-black/[0.04] px-2.5 py-1 text-[11px] text-mkt-muted"
               >
                 {tag}
               </span>
@@ -236,9 +239,11 @@ export default async function InstrumentDetailPage({
           </div>
         </div>
 
-        <p className="mt-8 text-center text-xs text-mkt-muted">
+        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-mkt-muted">
           Data shown is illustrative mock data for this pilot, not live market data or investment
-          advice.
+          advice. Bajaj Finserv Asset Management is registered with SEBI; mutual fund
+          investments are subject to market risks. Data is handled under the RBI-regulated
+          Account Aggregator framework and the DPDP Act, 2023.
         </p>
       </div>
     </div>

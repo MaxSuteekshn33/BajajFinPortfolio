@@ -24,7 +24,7 @@ export function PriceChart({ history, positive }: { history: PricePoint[]; posit
     <div className="glass-panel rounded-2xl p-4 sm:p-6">
       <div className="mb-4 flex items-center justify-between">
         <h3 className="text-sm font-semibold text-mkt-text">Price history</h3>
-        <div className="flex gap-1 rounded-full bg-white/5 p-1">
+        <div className="flex gap-1 rounded-full bg-black/[0.04] p-1">
           {ranges.map((r) => (
             <button
               key={r}
@@ -48,18 +48,18 @@ export function PriceChart({ history, positive }: { history: PricePoint[]; posit
                 <stop offset="100%" stopColor={color} stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
+            <CartesianGrid stroke="rgba(16,24,43,0.06)" vertical={false} />
             <XAxis
               dataKey="date"
               tickFormatter={(v) => formatTick(v, range)}
-              tick={{ fill: "#8b93a7", fontSize: 11 }}
-              axisLine={{ stroke: "rgba(255,255,255,0.08)" }}
+              tick={{ fill: "#6b7280", fontSize: 11 }}
+              axisLine={{ stroke: "rgba(16,24,43,0.08)" }}
               tickLine={false}
               minTickGap={40}
             />
             <YAxis
               domain={["auto", "auto"]}
-              tick={{ fill: "#8b93a7", fontSize: 11 }}
+              tick={{ fill: "#6b7280", fontSize: 11 }}
               axisLine={false}
               tickLine={false}
               width={56}
@@ -67,13 +67,14 @@ export function PriceChart({ history, positive }: { history: PricePoint[]; posit
             />
             <Tooltip
               contentStyle={{
-                background: "#0b1220",
-                border: "1px solid rgba(255,255,255,0.12)",
+                background: "#ffffff",
+                border: "1px solid rgba(16,24,43,0.1)",
                 borderRadius: 12,
                 fontSize: 12,
+                boxShadow: "0 4px 12px rgba(16,24,43,0.08)",
               }}
-              labelStyle={{ color: "#8b93a7" }}
-              itemStyle={{ color: "#f1f5f9" }}
+              labelStyle={{ color: "#6b7280" }}
+              itemStyle={{ color: "#10182b" }}
               formatter={(value) => [formatPrice(Number(value)), "Close"]}
               labelFormatter={(v) => formatTick(v, range)}
             />

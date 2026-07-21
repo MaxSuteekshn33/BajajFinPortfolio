@@ -87,6 +87,13 @@ export default function InvestorAppPage() {
             ))}
           </div>
         </div>
+
+        <p className="mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed text-gray-400">
+          Bajaj Finserv Asset Management is registered with SEBI. Mutual fund investments are
+          subject to market risks — please read all scheme-related documents carefully. Your
+          data is handled under the RBI-regulated Account Aggregator framework and the DPDP Act,
+          2023. This is a non-functional prototype; no real transactions are processed.
+        </p>
       </main>
 
       <AskFinAIWidget onTalkToAdvisor={() => setAdvisorOpen(true)} />

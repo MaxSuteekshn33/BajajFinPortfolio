@@ -25,7 +25,7 @@ export function FilterTabs({
           className={`cursor-pointer rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors duration-200 sm:text-sm ${
             active === f.id
               ? "bg-mkt-accent text-white"
-              : "text-mkt-muted hover:bg-white/5 hover:text-mkt-text"
+              : "text-mkt-muted hover:bg-black/[0.04] hover:text-mkt-text"
           }`}
         >
           {f.label}

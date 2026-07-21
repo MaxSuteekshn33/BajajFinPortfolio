@@ -16,7 +16,7 @@ export function HoldingBanner({
   if (!holding) {
     return (
       <div className="glass-panel flex flex-wrap items-center gap-3 rounded-2xl p-4 sm:p-5">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/5 text-mkt-muted">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/[0.04] text-mkt-muted">
           <Compass size={16} />
         </span>
         <div>

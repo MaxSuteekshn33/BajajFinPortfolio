@@ -21,9 +21,9 @@ export function RangeBar({
       <div className="flex items-center justify-between text-xs text-mkt-muted">
         <span className="font-medium uppercase tracking-wide">{label}</span>
       </div>
-      <div className="relative mt-2 h-1.5 rounded-full bg-white/10">
+      <div className="relative mt-2 h-1.5 rounded-full bg-black/[0.06]">
         <div
-          className="absolute top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-mkt-bg bg-mkt-accent shadow-[0_0_0_2px_rgba(91,141,239,0.4)]"
+          className="absolute top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-2 border-white bg-mkt-accent shadow-[0_0_0_2px_rgba(0,55,159,0.25)]"
           style={{ left: `calc(${clamped}% - 6px)` }}
         />
       </div>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Users, Briefcase, Network, ArrowRight, Info, Check, Minus, X } from "lucide-react";
+import { Users, LineChart, Network, ArrowRight, Info, Check, Minus, X, ShieldCheck } from "lucide-react";
 import { HowItWorksModal } from "@/components/HowItWorksModal";
 import { DataSpineModal } from "@/components/DataSpineModal";
 import { TopBanner } from "@/components/TopBanner";
@@ -40,9 +40,9 @@ export default function LandingPage() {
           transition={{ delay: 0.05 }}
           className="text-4xl font-extrabold tracking-tight text-primary-dark sm:text-5xl md:text-6xl"
         >
-          One Platform.
+          Investing,
           <br />
-          Two Faces. One Brain.
+          Made Personal.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 12 }}
@@ -50,9 +50,9 @@ export default function LandingPage() {
           transition={{ delay: 0.1 }}
           className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-500 sm:text-lg"
         >
-          Bajaj FinOS delivers hyper-personalized investing for every investor — and an
-          equally powerful AI co-pilot for every distributor. Same intelligence, two
-          experiences, zero conflict.
+          Bajaj FinOS pairs hyper-personalized, goal-based investing with a dedicated human
+          advisor and a calm AI companion — so every decision fits your life, not a generic
+          model portfolio.
         </motion.p>
 
         <motion.button
@@ -93,17 +93,15 @@ export default function LandingPage() {
             href="/investor"
             icon={<Users size={26} />}
             title="Investor App"
-            subtitle="D2C experience"
+            subtitle="Your portfolio"
             description="Goal-based investing, behavioural nudges, and a calm AI voice — built for people, not just portfolios."
-            accent="primary"
           />
           <EntryCard
-            href="/distributor"
-            icon={<Briefcase size={26} />}
-            title="Distributor Co-Pilot"
-            subtitle="B2B experience"
-            description="Churn radar, next-best-conversations, and a ledger that proves every client stays yours."
-            accent="alert"
+            href="/markets"
+            icon={<LineChart size={26} />}
+            title="Markets"
+            subtitle="Stocks & mutual funds"
+            description="Research and invest directly in stocks and mutual funds, with charts and ratios built for your holdings."
           />
         </div>
       </section>
@@ -124,8 +122,14 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-black/5 bg-white py-6 text-center text-xs text-gray-400">
-        Prototype for ATOM Season 9 — CEO&apos;s Challenge
+      <footer className="mt-auto border-t border-black/5 bg-white px-6 py-6 text-center text-xs text-gray-400">
+        <p>Prototype for ATOM Season 9 — CEO&apos;s Challenge</p>
+        <p className="mx-auto mt-2 max-w-2xl leading-relaxed">
+          Bajaj Finserv Asset Management is registered with SEBI. Mutual fund investments are
+          subject to market risks — please read all scheme-related documents carefully. Your
+          data is handled under the RBI-regulated Account Aggregator framework and the DPDP Act,
+          2023. This is a non-functional prototype; no real transactions are processed.
+        </p>
       </footer>
 
       <HowItWorksModal open={howItWorksOpen} onClose={() => setHowItWorksOpen(false)} />
@@ -140,29 +144,20 @@ function EntryCard({
   title,
   subtitle,
   description,
-  accent,
 }: {
   href: string;
   icon: React.ReactNode;
   title: string;
   subtitle: string;
   description: string;
-  accent: "primary" | "alert";
 }) {
-  const accentClasses =
-    accent === "primary"
-      ? "bg-primary text-white group-hover:bg-primary-dark"
-      : "bg-alert text-white group-hover:opacity-90";
-
   return (
     <Link
       href={href}
       className="group relative flex flex-col justify-between overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-black/5 transition-all hover:-translate-y-1 hover:shadow-xl"
     >
       <div>
-        <div
-          className={`inline-flex h-14 w-14 items-center justify-center rounded-2xl transition-colors ${accentClasses}`}
-        >
+        <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-white transition-colors group-hover:bg-primary-dark">
           {icon}
         </div>
         <p className="mt-5 text-xs font-semibold uppercase tracking-wide text-gray-400">
@@ -171,9 +166,7 @@ function EntryCard({
         <h3 className="mt-1 text-2xl font-bold text-primary-dark">{title}</h3>
         <p className="mt-3 text-sm leading-relaxed text-gray-500">{description}</p>
       </div>
-      <div
-        className={`mt-8 inline-flex w-fit items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-white transition-colors ${accentClasses}`}
-      >
+      <div className="mt-8 inline-flex w-fit items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors group-hover:bg-primary-dark">
         Enter
         <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
       </div>
@@ -283,10 +276,10 @@ function DataSpineDiagram({ onOpenSpine }: { onOpenSpine: () => void }) {
   return (
     <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-black/5 sm:p-12">
       <p className="mb-8 text-center text-xs font-semibold uppercase tracking-wide text-gray-400">
-        One brain, two faces
+        One brain, always personal
       </p>
       <div className="relative flex flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-between">
-        <DiagramNode icon={<Users size={22} />} label="Investor App" sub="D2C" />
+        <DiagramNode icon={<Users size={22} />} label="Investor App" sub="Goals & AI" />
 
         <div className="relative flex flex-1 items-center justify-center">
           <svg
@@ -315,7 +308,7 @@ function DataSpineDiagram({ onOpenSpine }: { onOpenSpine: () => void }) {
           </button>
         </div>
 
-        <DiagramNode icon={<Briefcase size={22} />} label="Distributor Co-Pilot" sub="B2B" />
+        <DiagramNode icon={<ShieldCheck size={22} />} label="Your Advisor" sub="Human, on call" />
       </div>
     </div>
   );

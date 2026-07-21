@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bajaj FinOS — One Platform. Two Faces. One Brain.",
+  title: "Bajaj FinOS — Investing, Made Personal.",
   description:
-    "Prototype for ATOM Season 9 - CEO's Challenge. A dual-sided FinAI platform for Bajaj Finserv Asset Management.",
+    "Prototype for ATOM Season 9 - CEO's Challenge. A hyper-personalized investing app for Bajaj Finserv Asset Management.",
 };
 
 export default function RootLayout({

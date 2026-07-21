@@ -24,7 +24,7 @@ export function MarketsHero({
       className="glass-panel-strong rounded-3xl p-6 sm:p-8"
     >
       <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wide text-mkt-muted">
-        <Sparkles size={13} className="text-mkt-violet" />
+        <Sparkles size={13} className="text-mkt-accent" />
         Personalized for {investorProfile.name.split(" ")[0]} · {investorProfile.persona}
       </div>
       <h1 className="mt-3 text-2xl font-bold text-mkt-text sm:text-3xl">

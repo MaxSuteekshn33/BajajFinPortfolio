@@ -422,22 +422,22 @@ export const howItWorksSteps = [
   {
     title: "Signals in",
     description:
-      "Transactions, SIP behaviour, app activity, market events, and consented Bajaj group signals flow into a single customer graph.",
+      "Your transactions, SIP behaviour, app activity, market events, and consented Bajaj group signals flow into a single customer graph.",
   },
   {
     title: "FinAI models",
     description:
-      "Behavioural models score goal risk, churn risk, and life-stage signals — the same models power both faces of the platform.",
+      "Behavioural models score your goal risk and life-stage signals — quietly, in the background, every day.",
   },
   {
     title: "Personalization out",
     description:
-      "Nudges, next-best-actions, and talking points are generated per person, per moment — not generic segments.",
+      "Nudges and next-best-actions are generated for you, per moment — not a generic segment or template.",
   },
   {
-    title: "Both faces",
+    title: "A human, always on call",
     description:
-      "The investor sees a calm, personal nudge. Their distributor sees the same signal as a conversation opener — never a conflict.",
+      "Every signal that reaches you is visible to your dedicated advisor too — so a real person is always one tap away.",
   },
 ];
 
@@ -445,20 +445,20 @@ export const howItWorksSteps = [
 
 export const problemStats = [
   {
-    stat: "84%",
-    label: "of flows still distributor-led",
+    stat: "12.4%",
+    label: "average XIRR across active goal plans",
   },
   {
-    stat: "21% → ~30%",
-    label: "Direct equity AUM share, 2020 → 2025",
+    stat: "24/7",
+    label: "Saathi AI copilot for your portfolio",
   },
   {
-    stat: "2-3x",
-    label: "AUM/yr growth rate of fintech challengers",
+    stat: "1:1",
+    label: "dedicated human advisor, always included",
   },
 ];
 
-export const problemLine = "The industry is forcing a choice. FinOS refuses to choose.";
+export const problemLine = "Investing that adapts to your life — not the other way around.";
 
 export type CompareValue = "yes" | "partial" | "no";
 
@@ -488,9 +488,9 @@ export const compareRows: CompareRow[] = [
     bankRm: "yes",
   },
   {
-    feature: "Distributor earns on digital transactions",
+    feature: "AI copilot for your goals",
     bajajFinos: "yes",
-    growwZerodha: "no",
+    growwZerodha: "partial",
     traditionalAmc: "no",
     bankRm: "no",
   },
@@ -502,9 +502,9 @@ export const compareRows: CompareRow[] = [
     bankRm: "partial",
   },
   {
-    feature: "Bajaj ecosystem distribution",
+    feature: "Direct stocks + mutual funds, one app",
     bajajFinos: "yes",
-    growwZerodha: "no",
+    growwZerodha: "yes",
     traditionalAmc: "no",
     bankRm: "no",
   },
@@ -521,20 +521,20 @@ export const rolloutPhases: RolloutPhase[] = [
   {
     phase: "Phase 1",
     window: "0–6 mo",
-    title: "Arm the channel",
-    description: "Distributor Co-Pilot + Data Spine — give every distributor an AI edge first.",
+    title: "Launch the Investor App",
+    description: "Goal-based investing, Saathi AI, and a dedicated human advisor from day one.",
   },
   {
     phase: "Phase 2",
     window: "6–12 mo",
-    title: "Open the direct door",
-    description: "Investor app with attribution built in — direct never means disintermediated.",
+    title: "Deepen Markets",
+    description: "Direct stocks and mutual funds, research-grade data, in the same app as your goals.",
   },
   {
     phase: "Phase 3",
     window: "12+ mo",
-    title: "Scale",
-    description: "Vernacular AI advisory + Bajaj group cross-sell — one graph, whole ecosystem.",
+    title: "Scale personalization",
+    description: "Vernacular AI advisory nationwide — the same intelligence, tuned to every investor.",
   },
 ];
 
@@ -553,8 +553,8 @@ export const dataSpineSources: DataSpineSource[] = [
     description: "SIPs, lumpsums, switches, and redemptions across Bajaj Finserv AMC schemes.",
   },
   {
-    name: "Distributor CRM",
-    description: "Client relationship history, calls, and meeting notes from the distributor's own book.",
+    name: "Advisor CRM",
+    description: "Call notes and meeting history from your dedicated advisor, kept in sync with your app.",
   },
   {
     name: "Bajaj group signals",
