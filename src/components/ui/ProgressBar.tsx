@@ -6,6 +6,7 @@ const colorMap = {
   blue: "bg-primary",
   green: "bg-gain",
   orange: "bg-alert",
+  gold: "bg-accent",
 };
 
 export function ProgressBar({

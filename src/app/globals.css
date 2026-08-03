@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f7fb;
-  --foreground: #10182b;
+  --background: #dbe9fc;
+  --foreground: #000000;
 }
 
 @theme inline {
@@ -11,9 +11,12 @@
   --font-sans: var(--font-inter);
 
   --color-primary: #00379f;
-  --color-primary-dark: #00195c;
+  --color-primary-dark: #000000;
   --color-primary-light: #e8edf9;
   --color-primary-soft: #d7e1f7;
+
+  --color-accent: #ffc72c;
+  --color-accent-dark: #e0a800;
 
   --color-surface: #ffffff;
   --color-surface-muted: #f4f6fa;
@@ -25,25 +28,21 @@
   --color-alert: #ea580c;
   --color-alert-soft: #ffedd5;
 
-  /* Markets dashboard — light blue/white theme (scoped to /markets only) */
-  --color-mkt-bg: #f5f7fb;
-  --color-mkt-bg-2: #eef1f8;
-  --color-mkt-surface: #ffffff;
-  --color-mkt-surface-strong: #ffffff;
-  --color-mkt-border: rgba(0, 0, 0, 0.05);
-  --color-mkt-border-strong: rgba(0, 0, 0, 0.08);
-  --color-mkt-text: #10182b;
-  --color-mkt-muted: #6b7280;
-  --color-mkt-accent: #00379f;
-  --color-mkt-accent-soft: #e8edf9;
-  --color-mkt-gain: #15803d;
-  --color-mkt-gain-soft: #dcfce7;
-  --color-mkt-loss: #dc2626;
-  --color-mkt-loss-soft: #fee2e2;
+  --color-risk-low: #15803d;
+  --color-risk-lowmod: #65a30d;
+  --color-risk-mod: #ca8a04;
+  --color-risk-modhigh: #ea580c;
+  --color-risk-high: #dc2626;
+  --color-risk-veryhigh: #991b1b;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(255, 255, 255, 0.65), transparent 40%),
+    radial-gradient(circle at 88% 0%, rgba(0, 55, 159, 0.16), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(147, 197, 253, 0.35), transparent 55%),
+    var(--background);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
@@ -62,28 +61,27 @@ body {
   border-radius: 999px;
 }
 
-/* Markets dashboard card utilities */
-.mkt-scope {
-  color-scheme: light;
-  scrollbar-color: rgba(0, 0, 0, 0.16) transparent;
-}
-
-.mkt-scope ::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.14);
-}
-
 .glass-panel {
-  background: var(--color-mkt-surface);
-  border: 1px solid var(--color-mkt-border);
-  box-shadow: 0 1px 2px rgba(16, 24, 43, 0.04);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 24px rgba(16, 24, 43, 0.06);
 }
 
 .glass-panel-strong {
-  background: var(--color-mkt-surface-strong);
-  border: 1px solid var(--color-mkt-border-strong);
-  box-shadow: 0 1px 3px rgba(16, 24, 43, 0.06);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 10px 30px rgba(16, 24, 43, 0.08);
 }
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
+}
+
+.dot-surface {
+  background-image: radial-gradient(rgba(0, 55, 159, 0.14) 1px, transparent 1px);
+  background-size: 18px 18px;
 }

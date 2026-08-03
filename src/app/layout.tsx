@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { NavBar } from "@/components/layout/NavBar";
+import { Footer } from "@/components/layout/Footer";
+import { FinAskWidget } from "@/components/finask/FinAskWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -9,9 +12,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bajaj FinOS — Investing, Made Personal.",
+  title: "Bajaj Finserv AMC — Direct. Personal. Yours.",
   description:
-    "Prototype for ATOM Season 9 - CEO's Challenge. A hyper-personalized investing app for Bajaj Finserv Asset Management.",
+    "FinAI-driven, direct-to-customer investing on Bajaj Finserv Asset Management's own mutual fund schemes. Hackathon prototype for ATOM Season 9, PS5.",
 };
 
 export default function RootLayout({
@@ -22,7 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
-        {children}
+        <NavBar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <FinAskWidget />
       </body>
     </html>
   );
