@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { MessageCircle, Send, Sparkles, X } from "lucide-react";
 import { getFinAskReply } from "@/lib/finask";
@@ -18,6 +19,7 @@ const WELCOME: ChatMessage = {
 };
 
 export function FinAskWidget() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([WELCOME]);
   const [input, setInput] = useState("");
@@ -26,6 +28,9 @@ export function FinAskWidget() {
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, open]);
+
+  const isInvestorSide = pathname !== "/" && !pathname.startsWith("/distributor");
+  if (!isInvestorSide) return null;
 
   function handleSend() {
     const trimmed = input.trim();
