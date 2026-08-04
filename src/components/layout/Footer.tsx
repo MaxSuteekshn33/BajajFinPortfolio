@@ -23,10 +23,7 @@ export function Footer() {
           </div>
           <div className="flex gap-8 text-xs text-gray-500">
             <div className="flex flex-col gap-1.5">
-              <span className="font-semibold text-gray-700">Investors</span>
-              <Link href="/invest" className="hover:text-primary">
-                Start Investing
-              </Link>
+              <span className="font-semibold text-gray-700">Product</span>
               <Link href="/explore" className="hover:text-primary">
                 Explore Schemes
               </Link>
@@ -35,18 +32,6 @@ export function Footer() {
               </Link>
               <Link href="/learn" className="hover:text-primary">
                 Bajaj Finserv Learn
-              </Link>
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <span className="font-semibold text-gray-700">Distributors</span>
-              <Link href="/distributor" className="hover:text-primary">
-                Cockpit
-              </Link>
-              <Link href="/distributor/acquisition" className="hover:text-primary">
-                Acquisition
-              </Link>
-              <Link href="/distributor/retention" className="hover:text-primary">
-                Retention
               </Link>
             </div>
           </div>
